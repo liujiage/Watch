@@ -1,0 +1,10 @@
+reference https://blog.csdn.net/chijiaodaxie/article/details/77893464
+sudo apt-get install mailutils
+#choose internet Site
+#System mail name: ubuntu
+mail -s "test" test@yahoo.com <<< 'this is a email body'
+echo 'this is a email body' | mail -s "AWS Email Testing" test@yahoo.com
+echo 'this is a email body' < email.txt
+mail -s "AWS Email Testing" test@yahoo.com < email.txt
+echo "This is the message body" | mail -s "subject" test@yahoo.com -a From:AWS\<test@mozat.com\>
+<command> | mail -s <Subject> <receiver address> -a From:<Sender' name>\<Sender address\>

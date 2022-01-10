@@ -1,0 +1,15 @@
+https://www.runoob.com/linux/linux-command-manual.html
+
+vi cron.sh
+#!/bin/sh
+echo `date`"--running" >> ./running.log
+chmod +x ./cron.sh
+
+crontab -e #edit
+* * * * * /home/ubuntu/cron.sh
+crontab -l #show
+
+issue
+-bash: ./cron.sh: Permission denied
+solve
+chmod +x ./cron.sh

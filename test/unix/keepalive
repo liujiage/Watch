@@ -1,0 +1,46 @@
+https://blog.csdn.net/yuki5233/article/details/83994843
+
+crontab -e
+*/1 * * * * /home/user_name/watch/auto_start.sh
+*/1 * * * * /home/user_name/watch/auto_start_watcher.sh
+
+auto_start.sh
+#!/bin/sh
+cd /home/ubuntu/watch
+
+count=`pgrep -c -f "Collector.py"`
+date=`date`
+if [ $count -lt 1 ];then
+        echo "start collector at $date" >> auto_start.log
+        ./start_collector.sh
+else
+        echo "monitor count $count,at time $date" >/dev/null
+fi
+
+start_collector.sh
+#!/bin/sh
+cd /home/ubuntu/watch
+nohup python Collector.py &>/dev/null
+
+stop_collector.sh
+#!/bin/sh
+count=`pgrep -c -f "Collector.py"`
+
+if [ $count -gt 0 ];then
+       id=`pgrep -f "Collector.py"`
+       kill -9 $id
+       echo kill Collector.py pid=$id successful!
+else
+       echo the Collector.py is not running!
+fi
+
+status_collector.sh
+#!/bin/sh
+count=`pgrep -c -f "Collector.py"`
+
+if [ $count -gt 0 ];then
+       id=`pgrep -f "Collector.py"`
+       echo Collector.py is running pid=$id now!
+else
+       echo the Collector.py is not running!
+fi

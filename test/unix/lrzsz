@@ -1,0 +1,19 @@
+sudo apt install lrzsz
+
+mac using rz and sz
+brew install lrzsz
+
+Iterm2 config rz and sz
+https://www.huweihuang.com/linux-notes/keymap/iterm2-rzsz.html
+
+ssh
+https://www.servermania.com/kb/articles/ssh-mac/
+ssh -i /Users/liujiage/Documents/work/Test.pem ubuntu@10.30.0.35
+
+issue
+ssh -i /Users/liujiage/Documents/work/Test.pem ubuntu@10.30.0.35
+Permissions 0644 for '/Users/.../.ssh/..' are too open...
+
+solve problem
+chmod 600 Test.pem
+https://blog.csdn.net/pansanday/article/details/80776079
