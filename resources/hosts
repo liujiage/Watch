@@ -1,0 +1,104 @@
+pre-environment
+10.30.0.77   Collector  deployment      ok
+10.30.0.48   Watcher    services        ok
+10.30.0.49   Watcher    services        ok
+10.30.0.56   Watcher    services        ok      Stopped
+10.30.0.30   Watcher    services        ok      Stopped
+10.30.0.31   Watcher    services        ok
+10.30.0.61   Watcher    services        ok
+10.30.0.60   Watcher    services        ok
+10.30.0.42   Watcher    es              ok
+10.30.0.43   Watcher    es              ok
+10.30.0.78   Watcher    cassandra       ok
+10.30.0.79	 Watcher    cassandra       ok
+10.30.0.77	 Watcher    cassandra       ok
+10.30.0.41	 Watcher    rabbitmq        ok
+10.30.0.40	 Watcher    rabbitmq        ok
+10.30.0.22   Watcher    monitor         ok
+10.30.0.52   Watcher    redis           ok
+10.30.0.7    Watcher    Nginx           ok
+10.30.0.6	 Watcher    Nginx           ok
+10.30.0.20   Watcher    billing         ok
+10.30.0.21   Watcher    billing         ok
+
+
+release
+10.40.1.43      Collector,      deployment        ok
+10.40.1.68      Watcher         services          ok
+10.40.1.67      Watcher         services          ok
+10.40.0.65      Watcher         services          ok
+10.40.1.78      Watcher         services          ok
+10.40.1.44      Watcher         services          ok
+10.40.1.79      Watcher         services          ok
+10.40.0.51      Watcher         services          ok
+10.40.1.154     Watcher         services          ok
+10.40.0.199     Watcher         services          ok
+10.40.0.104     Watcher         services          ok
+10.40.1.63      Watcher         services          ok
+10.40.1.65      Watcher         services          ok
+10.40.0.113     Watcher         services          ok
+10.40.1.247     Watcher         services          ok
+10.40.1.204     Watcher         services          ok
+10.40.0.202     Watcher         services          ok
+10.40.0.224     Watcher         services          ok
+10.40.1.34      Watcher         services          ok
+10.40.1.33      Watcher         services          ok
+10.40.0.108     Watcher         services          ok
+10.40.0.149     Watcher         services          ok
+10.40.0.165     Watcher         services          ok
+10.40.1.62      Watcher         services          ok
+10.40.1.189     Watcher         services          ok
+10.40.0.216     Watcher         services          ok
+10.40.1.77      Watcher         services          ok
+10.40.1.69      Watcher         services          ok
+10.40.0.220     Watcher         services          ok
+10.40.0.200     Watcher         services          ok
+10.40.0.201     Watcher         services          ok
+10.40.1.61      Watcher         services          ok
+10.40.0.221     Watcher         services          ok
+10.40.3.60      Watcher         services          ok
+
+10.40.1.28      Watcher         EMR-Master
+10.40.1.142     Watcher         EMR-Slave         ok
+10.40.1.117     Watcher         EMR-Slave         ok
+10.40.1.18      Watcher         EMR-Slave         ok
+10.40.1.177     Watcher         EMR-Slave         ok
+
+10.40.3.10      Watcher         DI Task           ok
+10.40.0.23      Watcher         DI Task           ok        stop
+
+
+GZ release
+10.50.0.20      Collector,      deployment        ok
+
+
+Change EC2 Type
+10.30.0.30      t2.xlarge       t2.medium
+
+
+pre-release
+16G with 2 vCPUs
+8G,4G,2G with 1vCPUs
+
+t2.xlarge 4
+t2.medium 6
+t2.large  8
+
+EC2 Type
+t2.xlarge 16.0 GiB  4 vCPUs $147.168000 monthly
+t2.medium 4.0 GiB	2 vCPUs $36.500000 monthly
+t2.large  8.0 GiB	2 vCPUs $73.584000 monthly
+
+2 vCPUs 16.0 GiB
+r5a.large 16.0 GiB	2 vCPUs $92.710000  monthly
+r6g.large 16.0 GiB	2 vCPUs $82.344000 monthly
+r4.large  15.25GiB	2 vCPUs $108.186000 monthly
+r5.large  16.0 GiB	2 vCPUs $102.930000 monthly
+
+2 vCPUs 8.0 GiB
+t3.large  8.0 GiB	2 vCPUs $66.576000 monthly
+t2.large  8.0 GiB	2 vCPUs $73.584000 monthly
+
+1 vCPUs
+r6g.medium 8.0 GiB	1 vCPUs $41.172000 monthly
+m6g.medium 4.0 GiB	1 vCPUs $31.390000 monthly

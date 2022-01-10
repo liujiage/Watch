@@ -1,0 +1,30 @@
+安装Watch
+环境Python 2.7， Pip 升级到最高版本（用于安装依赖），Linux OS
+在执行下面操作前，先确认环境安装正确！
+1.数据存储服务安装(Collector)
+安装，sqlite3 (如果已经安装可忽略)
+pip2 install simple-websocket-server==0.4.1
+pip2 install websocket==0.2.1
+pip2 install paramiko==2.4.1
+pip2 install websocket_client==0.59.0
+
+正式启动数据存储服务
+nohup python Collector.py &>/dev/null
+测试启动数据收集服务（下面的ip 是存储服务的ip 地址）
+python Watcher-linux.py --host 10.50.x.x --interval 1
+正式启动数据收集服务（下面的ip 是存储服务的ip 地址）
+nohup python Watcher-linux.py --host 10.50.x.x --interval 3600 &>/dev/null
+
+启动后收集搜集程序Watcher会发送数据给数据存储Collector 启动Watcher程序后会在控制台输出消息发送与回包确认信息。看到此信息表示安装成功！
+
+2.数据收集服务安装(Watcher)
+pip2 install websocket_client==0.59.0
+测试启动数据收集服务（下面的ip 是存储服务的ip 地址）
+python Watcher-linux.py --host 10.50.x.x --interval 1
+正式启动数据收集服务（下面的ip 是存储服务的ip 地址）
+nohup python Watcher-linux.py --host 10.50.x.x --interval 3600 &>/dev/null
+
+3.查看搜集性能指标数据
+更多命令可参考sqlite3文档
+sqlite3 ./watch.db
+select * from data_hour;

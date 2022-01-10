@@ -1,0 +1,97 @@
+Test pre-release
+sudo netstat -apn|grep 1111  #lokking for collector
+sudo ps aux | grep -i Watcher  #looking for watcher
+scp -r /home/user_name/watch user_name@10.30.0.48://home/user_name/watch
+scp /home/user_name/watch/Watcher-linux.py user_name@10.30.0.48://home/user_name/watch/Watcher-linux.py
+10.30.0.77 server
+chmod +x Collector.py
+nohup python Collector.py &>/dev/null
+10.30.0.48 Client
+python Watcher-linux.py --host 10.30.0.77 --interval 1 #only for test
+nohup python Watcher-linux.py --host 10.30.0.77 --interval 3600 &>/dev/null
+#deployment
+python Manage.py --cmd 'deploy' --user 'user_name' --pwd '*********' --local_path './deploy/watch' --remote_path '/home/user_name/'
+python Manage.py --user 'user_name' --pwd '********' --local_path './data/report-20210614.csv' --remote_path '/home/user_name/watch'
+
+#pip install
+#if default environment is not work, can try to use a different mirrors url
+cd ~
+mkdir .pip
+vim .pip/pip.conf
+vim ~/.pip/pip.conf
+[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+
+[install]
+trusted-host=mirrors.aliyun.com
+
+#upgrade pip10.40.1.52
+sudo apt update #Redhat sudo yum update
+sudo apt install python2 #Redhat sudo yum install python2
+curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.p #Redhat sudo pip install --upgrade pip
+#- curl -O https://bootstrap.pypa.io/pip/2.7/get-pip.py
+#- sudo python get-pip.py
+
+sudo python2 get-pip.py
+
+Export data
+.headers on
+.mode csv
+.output ./report.csv
+select * from view_report;
+.output stdout
+select * from data_hour;
+.quit
+
+Query with a format
+.headers on
+.mode column
+select * from view_mem;
+
+
+Note:
+Python have a weak point that it very difficult to detect the error.
+Error:
+https://stackoverflow.com/questions/44080033/python-ubuntu-linux-nohup-error-1-exit
+pip linux can not install
+https://blog.csdn.net/C_chuxin/article/details/84248909
+
+setup in Redhat with error
+-bash: /usr/bin/pip: No such file or directory
+cd /usr/local/bin
+try pip,pip2,pip2.7
+pip2.7 -V
+
+Pip can not upgrade issue
+need update system and install python2
+get version python2.7 get-pip.py
+exectue python get-pip.py, update the new pip for python2.7
+https://rajputankit22.medium.com/upgrade-python-2-7-to-3-6-and-3-7-in-ubuntu-97d2727bf911
+
+python Manage.py --cmd 'deploy' --user 'user_name' --pwd '*********' --local_path './deploy/watch' --remote_path '/home/user_name/'
+#upgrade pip & install requirement
+pip2 install simple-websocket-server==0.4.1
+pip2 install websocket==0.2.1
+pip2 install paramiko==2.4.1
+pip2 install websocket_client==0.59.0   #only one for watcher
+pip3 install psutil==5.7.3 #use it in python3 Watcher.py
+pip2 install scp==0.13.4 #if you want to use Manage.py
+#test
+nohup python Collector.py &>/dev/null
+python Watcher-linux.py --host 10.40.1.43 --interval 1
+python3 Watcher.py --host 10.30.0.35 --interval 1
+nohup python Watcher-linux.py --host 10.40.1.43 --interval 3600 &>/dev/null
+
+https://www.runoob.com/docker/docker-rm-command.html
+sudo docker ps
+sudo ps -aux | grep -v grep | grep docker-proxy
+sudo docker rm -f <container id>
+
+#Nginx
+sudo cat /root/logstash.sh
+ps -ef |grep 10-nginx_access.conf |grep -v grep  ||nohup /opt/logstash/bin/logstash -f /etc/logstash/conf.d/10-nginx_access.conf >/dev/null 2>&1 &
+#/etc/logstash/conf.d/10-nginx_access.conf
+#[file] /var/log/nginx/access.log to [kafka] bootstrap_servers => ["10.40.0.15:9092"] topic_id = nginx.log
+
+
+

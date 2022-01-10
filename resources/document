@@ -1,0 +1,113 @@
+Python 2.7.X
+webclient both support 2.7.X and 3.0
+https://pypi.org/project/websocket-client/
+webserver both support 2.7.X and 3.0
+https://github.com/pikhovkin/simple-websocket-server
+
+Install all depends packages
+pip freeze > requirements.txt
+pip install -r requirements.txt
+
+psutil (cross platform get system information
+ both support 2.7x and 3.0)
+
+https://psutil.readthedocs.io/en/latest/
+https://github.com/giampaolo/psutil
+*psutil still solve the issue can not found psutil when use 'import psutil', change use 'os' to solve this issue.
+
+free -m -t
+total 系统总的可用物理内存大小
+used 已被使用的物理内存大小
+free 还有多少物理内存可用
+shared 被共享使用的物理内存大小
+buff/cache 被 buffer 和 cache 使用的物理内存大小
+available 还可以被 应用程序 使用的物理内存大小
+其中有两个概念需要注意
+free 与 available 的区别
+free 是真正尚未被使用的物理内存数量。
+available 是应用程序认为可用内存数量，available = free + buffer + cache (注：只是大概的计算方法)
+
+Sqlite3 (api)
+https://www.sqlite.org/download.html
+https://docs.python.org/3/library/sqlite3.html
+sqlite3(command)
+install
+Debian / Ubuntu
+sudo apt-get install sqlite3
+CentOS / Fedora / RedHat
+sudo yum install sqlite3
+https://sqlite.org/cli.html
+sqlite3             #or sqlite3 filename
+.open filename
+select * from table_name;
+
+https://www.runoob.com/sqlite/sqlite-commands.html
+sqlite3 ./watch.db
+.show
+sqlite>.show
+     echo: off
+  explain: off
+  headers: off
+     mode: column
+nullvalue: ""
+   output: stdout
+separator: "|"
+    width:
+.headers on
+.mode column
+.timer on
+select * from view_mem;
+
+sqlite3 watch.db -header -column "select * from view_mem"
+
+
+
+#export data
+#data_hour
+.headers on
+.mode csv
+.once ./data.csv #some version use .output ./data.csv for linux
+select * from table_name;
+
+scpclient
+https://pypi.org/project/scpclient/
+pip list | grep paramiko
+pip list | grep cryptography
+pip install paramiko==2.4.1
+pip install cryptography==2.7
+
+https://pypi.org/project/scp/
+
+
+pip freeze > ./requirements.txt  #environment requirements
+pip install pipreqs
+pipreqs ./                       #project requirements
+pip install -r requirements.txt  #install all requirements
+pip show cryptography            #model requirements
+
+pip list
+pip list | grep scp
+
+pip install johnnydep
+johnnydep paramiko
+pip install pipdeptree
+pipdeptree -p paramiko
+
+pip install
+pip install model -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install xxx.whl #offline install
+python setup.py install #source code install
+
+Unix
+https://www.tutorialspoint.com/unix/unix-directories.htm
+crontab+shell
+https://segmentfault.com/a/1190000021218790
+
+
+Python web
+https://realpython.com/api-integration-in-python/
+
+
+
+
+
